@@ -74,6 +74,7 @@ View(fRead)
   
   2. Leer el fichero con `read.csv` y el parámetro `stringsAsFactors=F`.
 ```{r}
+
 ficheroRCS<-read.csv(fname,stringsAsFactors = F,sep= "\t")
 ```
   
