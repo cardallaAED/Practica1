@@ -68,7 +68,7 @@ Usa siempre rutas referidas a la carpeta, en la que se encuentra el fichero fuen
 fname <- 'data/DFP1_11122015 124700.csv'
 library(readr)
 fRead<- read.delim(fname,sep = "\t")
-View(fRead)
+
 
 ```
   
@@ -124,8 +124,7 @@ Otra opción es usar la librería `readr` para especificar directamente el tipo 
   3. Guarda el data frame con `save`.
 ```{r}
 
-BreadBasket_DMS <- read.csv("./data/BreadBasket_DMS.csv",sep= "\t")
-View(BreadBasket_DMS)
+BreadBasket_DMS <- read.csv("./data/BreadBasket_DMS.csv",sep= ",")
 save(file="data/Almacenamiento.Rdata",list = c('BreadBasket_DMS'))
 ```
 
@@ -229,7 +228,7 @@ Es importante saber cómo exportar datos en este formato.
   * Fechas: las importa como un string que interpretado como 'numeric' es el número de días transcurridos desde 01-01-1900.
   * Si se indica en `col_type` que son `date` los lee bien.
   * Formatos numéricos: se puede indicar el tipo en `col_type`, o convertirlos después con `as.numeric`.
-  * Guardar datos en formato .RData. 
+  * Guardar datos en formato .RData.
 
 ```{r warning=F}
 library(readxl)
