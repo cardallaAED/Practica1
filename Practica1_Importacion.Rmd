@@ -64,9 +64,10 @@ Usa siempre rutas referidas a la carpeta, en la que se encuentra el fichero fuen
 
   1. Usar la herramienta de importación para previsualizar el resultado final. Compara las opciones _base_ y _readr_.
 ```{r}
+
 fname <- 'data/DFP1_11122015 124700.csv'
 library(readr)
-fRead<- read.delim(fname,sep = "\t",)
+fRead<- read.delim(fname,sep = "\t")
 View(fRead)
 
 ```
