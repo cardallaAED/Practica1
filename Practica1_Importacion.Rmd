@@ -80,6 +80,7 @@ ficheroRCS<-read.csv(fname,stringsAsFactors = F,sep= "\t")
   
   3. Convertir fecha y hora con `as.POSIXlt` y `as.hms` (`hms` library).
 ```{r}
+
 fechaHora<-paste(ficheroRCS$FECHA,ficheroRCS$HORA)
 as.POSIXlt(fechaHora, format="%d/%m/%Y %H:%M:%OS")
 
