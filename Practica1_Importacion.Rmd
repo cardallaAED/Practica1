@@ -124,7 +124,7 @@ Otra opción es usar la librería `readr` para especificar directamente el tipo 
   3. Guarda el data frame con `save`.
 ```{r}
 
-BreadBasket_DMS <- read.csv("./data/BreadBasket_DMS.csv")
+BreadBasket_DMS <- read.csv("./data/BreadBasket_DMS.csv",sep= "\t")
 View(BreadBasket_DMS)
 save(file="data/Almacenamiento.Rdata",list = c('BreadBasket_DMS'))
 ```
@@ -162,6 +162,7 @@ Podemos leer ficheros de IBM SPSS mediante la librería `haven`.
 ```{r}
 library(haven)
 filename <- "data/PsychBike.sav"
+
 ```
 
 ## Inspección de los datos
