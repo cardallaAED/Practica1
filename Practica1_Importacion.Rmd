@@ -63,12 +63,35 @@ Usa siempre rutas referidas a la carpeta, en la que se encuentra el fichero fuen
 ## Importación del fichero
 
   1. Usar la herramienta de importación para previsualizar el resultado final. Compara las opciones _base_ y _readr_.
+```{r}
+fname <- 'data/DFP1_11122015 124700.csv'
+library(readr)
+fRead<- read.delim(fname,sep = "\t",)
+View(fRead)
+
+```
+  
   2. Leer el fichero con `read.csv` y el parámetro `stringsAsFactors=F`.
+```{r}
+ficheroRCS<-read.csv(fname,stringsAsFactors = F,sep= "\t")
+```
+  
   3. Convertir fecha y hora con `as.POSIXlt` y `as.hms` (`hms` library).
+```{r}
+fechaHora<-paste(ficheroRCS$FECHA,ficheroRCS$HORA)
+as.POSIXlt(fechaHora, format="%d/%m/%Y %H:%M:%OS")
+
+library(hms)
+horasHMS<-as.hms(ficheroRCS$HORA)
+```
+  
   4. Almacenar con `save`.
 
 ```{r}
-fname <- 'data/DFP1_11122015 124700.csv'
+
+fichero<-read.csv(fname)
+
+
 ```
 
 ## Inspección de los datos
