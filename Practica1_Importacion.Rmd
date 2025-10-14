@@ -82,7 +82,7 @@ ficheroRCS<-read.csv(fname,stringsAsFactors = F,sep= "\t")
 ```{r}
 
 fechaHora<-paste(ficheroRCS$FECHA,ficheroRCS$HORA)
-as.POSIXlt(fechaHora, format="%d/%m/%Y %H:%M:%OS")
+FechaHoraPOSIXlt<-as.POSIXlt(fechaHora, format="%d/%m/%Y %H:%M:%OS")
 
 library(hms)
 horasHMS<-as.hms(ficheroRCS$HORA)
@@ -92,8 +92,8 @@ horasHMS<-as.hms(ficheroRCS$HORA)
 
 ```{r}
 
-fichero<-read.csv(fname)
-
+save(file="data/Almacenamiento.Rdata",list = c('fechaHora'))
+load(file="./data/Almacenamiento.Rdata")
 
 ```
 
@@ -103,6 +103,11 @@ Inspecciona los datos con `str`, `head`, `tail` y `summary`.
 
 ```{r}
 # str, head, tail, summary
+
+str(ficheroRCS)
+head(ficheroRCS)
+tail(ficheroRCS)
+summary(ficheroRCS)
 ```
 
 
@@ -117,11 +122,13 @@ Otra opción es usar la librería `readr` para especificar directamente el tipo 
   1. Utiliza _Import Dataset_ de RStudio, opción _readr_, para previsualizar el fichero y especificar los tipos de datos.
   2. Copia el código resultante y comprueba la lectura de datos.
   3. Guarda el data frame con `save`.
-
 ```{r}
-library(readr)
-filename <- "data/BreadBasket_DMS.csv"
+
+BreadBasket_DMS <- read.csv("./data/BreadBasket_DMS.csv")
+View(BreadBasket_DMS)
+save(file="data/Almacenamiento.Rdata",list = c('BreadBasket_DMS'))
 ```
+
 
 ## Inspección de los datos
 
@@ -129,6 +136,11 @@ Inspecciona los datos con `str`, `head`, `tail` y `summary`.
 
 ```{r}
 # dim, str, ...
+str(BreadBasket_DMS)
+dim(BreadBasket_DMS)
+head(BreadBasket_DMS)
+tail(BreadBasket_DMS)
+summary(BreadBasket_DMS)
 ```
 
 
