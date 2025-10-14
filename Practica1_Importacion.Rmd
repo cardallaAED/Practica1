@@ -137,10 +137,15 @@ Inspecciona los datos con `str`, `head`, `tail` y `summary`.
 ```{r}
 # dim, str, ...
 str(BreadBasket_DMS)
+
 dim(BreadBasket_DMS)
+
 head(BreadBasket_DMS)
+
 tail(BreadBasket_DMS)
+
 summary(BreadBasket_DMS)
+
 ```
 
 
