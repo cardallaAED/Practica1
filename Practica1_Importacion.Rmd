@@ -237,6 +237,11 @@ Es importante saber cómo exportar datos en este formato.
 
 ```{r}
 # ...
+library(jsonlite)
+library(readr)
+write_json(iris, "./iris.json", pretty = TRUE, dataframe = "rows", na = "null")
+json_iris<-toJSON(iris,dataframe = "rows", pretty = TRUE, na = "null")
+write_file(json_iris, "./iris_write_file.json")
 
 ```
 
