@@ -161,7 +161,7 @@ Podemos leer ficheros de IBM SPSS mediante la librería `haven`.
 ```{r}
 library(haven)
 filename <- "data/PsychBike.sav"
-
+ficheroSave<-read_sav(filename)
 ```
 
 ## Inspección de los datos
@@ -170,6 +170,15 @@ Inspecciona los datos con `str`, `head`, `tail` y `summary`.
 
 ```{r}
 # dim, str, etc.
+str(ficheroSave)
+
+dim(ficheroSave)
+
+head(ficheroSave)
+
+tail(ficheroSave)
+
+summary(ficheroSave)
 ```
 
 
@@ -190,6 +199,7 @@ En R podemos importar ficheros JSON con la librería `jsonlite`. Las funciones m
 ## Importar el fichero `FileCodificado.json`
 
   1. Abrir el fichero `FileCodificado.json` con un editor de texto (el de RStudio vale) para ver qué contiene. Comprobaremos que se puede leer e interepretar con facilidad.
+  
   2. Importar el fichero a R con `read_json`. Observar la importancia del parámetro `simplifyVector`.
   3. Como alternativa, leer el fichero en modo texto con `read_file` de la librería **readr** y después convertir el objeto character a data frame con `fromJSON`.
   4. Almacenar los resultados en `FileCodificado.RData`.
@@ -197,6 +207,8 @@ En R podemos importar ficheros JSON con la librería `jsonlite`. Las funciones m
 ```{r}
 library(jsonlite)
 filename <- 'data/FileCodificado.json'
+ficheroJson<-read_json(filename,simplifyVector = TRUE )
+save(file="data/AlmacenamientoJson.Rdata",list = c('ficheroJson'))
 ```
 
 ## Inspección de los datos
@@ -205,6 +217,15 @@ Inspecciona los datos con `str`, `head`, `tail` y `summary`.
 
 ```{r}
 # str, head, tail, summary
+str(ficheroJson)
+
+dim(ficheroJson)
+
+head(ficheroJson)
+
+tail(ficheroJson)
+
+summary(ficheroJson)
 ```
 
 ## Extra: exportar datos en formato JSON
@@ -216,6 +237,7 @@ Es importante saber cómo exportar datos en este formato.
 
 ```{r}
 # ...
+
 ```
 
 
