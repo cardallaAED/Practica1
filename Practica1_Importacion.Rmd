@@ -326,6 +326,23 @@ filename <- "data/subjectInfo.xlsx"
   4. Como siempre al final guardamos el resultado con `save`.
 
 ```{r}
+filename <- "data/subjectInfo.xlsx"
+measurment <- read_excel(filename, sheet = 1)
+neuropathy <- read_excel(filename, sheet = 2)
+tunning <- read_excel(filename, sheet = 3)
+mobility <- read_excel(filename, sheet = 4)
+
+todos<- excel_sheets(filename)
+df <- list()
+for (n in todos) {
+  df[[n]] <- read_excel(path = filename, sheet = n)
+}
+
+divideLibro <- function(s) read_excel(path = filename, sheet = s)
+
+x <- lapply(todos, divideLibro)
+names(x) <- todos
+save(x, file = "./data/Hojas.RData")
 # save()
 ```
 
@@ -335,4 +352,10 @@ Inspecciona los datos con `str` (jugar con `max.level`), `head`, `tail` y `summa
 
 ```{r}
 # str, head, tail, summary
+str(x, max.level = 2)
+head(x, 10)
+
+tail(x)
+
+summary(x)
 ```
