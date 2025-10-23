@@ -272,10 +272,17 @@ df <- read_excel(fname, sheet=2) # El formato de las fechas no es correcto
 # Es más fácil ver cuales NO son 'numeric'.
 # Definir los tipos de datos en 'ct' y releer con 'read_excel'.
 # df <- read_excel(fname, sheet=2, col_types=ct)
+
 ```
 
 ```{r}
 # save()
+df <- read_excel(
+  "./data/ERCA.xlsx",
+   sheet=2,
+  col_types = c("numeric","numeric","date","text","date","date","numeric","numeric","numeric","date","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess","guess")
+)
+save(file="./data/ExcelData.Rdata",list = c('df'))
 ```
 
 ## Inspección de los datos
@@ -286,6 +293,17 @@ df <- read_excel(fname, sheet=2) # El formato de las fechas no es correcto
 ```{r}
 # Conviene limpiar primero un poco => eliminar is.na, etc.
 # head, tail, str, summary
+df_limpio <- df[!is.na(df$IDENTIFICA), ]
+
+str(df_limpio)
+
+dim(df_limpio)
+
+head(df_limpio, 10)
+
+tail(df_limpio)
+
+summary(df_limpio)
 ```
 
 
